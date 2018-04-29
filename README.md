@@ -13,6 +13,17 @@ The referral program has the following terms:
 that initiated the change. I.e., if you directly invite somebody to send 100 ETH in one transaction, you
 will only receive 1% bonus from this amount, and 10% bonus from all new referrals that you make.
 
+### Test coverage report
+
+Run the following commands to reproduce
+
+```
+npm install
+./node_modules/.bin/solidity-coverage
+```
+
+![test-coverage](https://forum.rados.io/uploads/default/original/1X/a5afd0eb9c1fdd86bcdd9542d15dfdd8b95074c7.png)
+
 ### Events
 ```js
 // called when presale is activated
