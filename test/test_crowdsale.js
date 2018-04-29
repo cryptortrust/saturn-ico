@@ -168,13 +168,17 @@ contract('TokenSale', function(accounts) {
 
     let balanceBefore = await saturn.balanceOf(referrer)
     let refAmountBefore = await ico.refAmount(referrer)
+    let refPercentageBefore = await ico.refPercentage(referrer)
     assert.equal(refAmountBefore.toString(), 0)
+    assert.equal(refPercentageBefore.toString(), 1)
 
     await ico.processPurchase(referrer, {value: web3.toWei(0.1, 'ether')})
 
     let balanceAfter = await saturn.balanceOf(referrer)
     let refAmountAfter = await ico.refAmount(referrer)
+    let refPercentageAfter = await ico.refPercentage(referrer)
 
+    assert.equal(refPercentageBefore.toString(), 1)
     assert.equal(balanceAfter.minus(balanceBefore).toString(), 500000)
     assert.equal(refAmountAfter.minus(refAmountBefore).toString(), 500000)
   })
